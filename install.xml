@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<!--Generated with Mod Manager (c) 2013 Yoshi2889-->
+<modification xmlns:smf="http://www.simplemachines.org/" xmlns="http://www.simplemachines.org/xml/modification">
+    <id>Yoshi2889:OriginalPosterinTopicV</id>
+    <version>0.1</version>
+    <file name="$themedir/Display.template.php">
+        <operation>
+            <search position="replace"><![CDATA[		// Show a link to the member's profile.
+		echo '
+								', $message['member']['link'], ']]></search>
+            <add><![CDATA[		// Show a link to the member's profile.
+		echo '
+								', $message['member']['link'];
+
+		// Is this poster the first poster? Also take in account any optional additional authors.
+		if (!empty($message['member']['is_topic_starter']) || !empty($context['add_authors'][$message['member']['id']]))
+			echo ' <span style="color:red">(OP)</span>';
+
+	echo ']]></add>
+        </operation>
+    </file>
+</modification>
